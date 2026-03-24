@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   release:
@@ -60,9 +61,7 @@ jobs:
 
       - name: Publish to npm
         if: steps.tag_check.outputs.exists != 'true'
-        run: pnpm publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --access public --no-git-checks --provenance
 
       - name: Create GitHub Release
         if: steps.tag_check.outputs.exists != 'true'
