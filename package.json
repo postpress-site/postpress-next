@@ -1,0 +1,45 @@
+{
+  "name": "@postpress/next",
+  "version": "0.1.0",
+  "description": "PostPress framework for building CMS-driven Next.js sites",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/cli.mjs"
+  ],
+  "bin": {
+    "postpress-next": "./src/cli.mjs"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm build"
+  },
+  "peerDependencies": {
+    "next": ">=14",
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "next": "^16.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/postpress-site/postpress-next.git"
+  },
+  "license": "MIT",
+  "keywords": ["postpress", "nextjs", "cms", "headless"]
+}
